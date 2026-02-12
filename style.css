@@ -13,3 +13,14 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: rgb(69,64,64);
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 600px;
+}

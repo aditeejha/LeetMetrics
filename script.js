@@ -25,12 +25,16 @@ document.addEventListener("DOMContentLoaded", function(){
         return isMatching;
     }
 
-    
+    async function fetchUserDetails(username){
+        const url=`https://leetcode-stats-api.herokuapp.com/${username}`;
+        
+    } 
 
     searchButton.addEventListener('click', function(){
         const username = usernameInput.value;
         console.log("logging username: ", username);
         if(validateUsername(username)){
+            fetchUserDetails(username);
         }
     })
 })

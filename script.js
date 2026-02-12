@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const hardProgressCircle = document.querySelector(".hard-progress");
     const easylabel = document.getElementById("easy-label");
     const mediumLabel = document.getElementById("medium-label");
-    const hardLabel = document.getElementById("hard-label");z
+    const hardLabel = document.getElementById("hard-label");
     const cardStatsContainer = document.querySelector(".stats-cards");
 
     //return true or false based on regex(regular expression)
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
             alert("Username cannot be empty");
             return false;
         }
-        const regex= /^[a-zA-Z0-9_-]$/;
+        const regex= /^[a-zA-Z0-9_-]+$/;
         const isMatching = regex.test(username);
         if(!isMatching){
             alert("Invalid Username");
@@ -26,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     async function fetchUserDetails(username){
-        const url=`https://leetcode-stats-api.herokuapp.com/${username}`;
+        
         try{
+            const url=`https://alfa-leetcode-api.onrender.com/userProfile/${username}`;
             searchButton.textContent="Searching...";
             searchButton.disabled=true;
             
@@ -39,10 +40,12 @@ document.addEventListener("DOMContentLoaded", function(){
             console.log("Logging data: ", data);
         }
         catch(error){
-
+            console.log("Error fetching user details: ", error);
+            alert("Error: " + error.message);
         }
         finally{
-
+            searchButton.textContent="Search";
+            searchButton.disabled=false;
         }
     } 
 

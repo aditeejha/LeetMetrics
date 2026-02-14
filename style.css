@@ -81,13 +81,19 @@ h1{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: space-evenly;
+}
+
+h4{
+    font-size: 1rem;
 }
 
 .card{
     background-color: rgb(230, 146, 44);
-    width: 200px;
+    width: 40%;
     max-width: 290px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     font-size: 1rem;
+    min-height: 4rem;
 }

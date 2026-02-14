@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 </div>
                 `
             }
-        )
+        ).join("");
     }
 
     searchButton.addEventListener('click', function(){

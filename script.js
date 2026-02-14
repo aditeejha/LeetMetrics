@@ -51,6 +51,10 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     } 
 
+    function updateProgress(solved, total, label, circle){
+        constprogressDegree = (solved/total)*100;
+    }
+
     function displayUserData(parsedData){
         const totalQues=parsedData.totalSolved.totalSubmissions[0].count;
         const totalEasyQues=parsedData.totalSolved.totalSubmissions[1].count;
@@ -62,14 +66,18 @@ document.addEventListener("DOMContentLoaded", function(){
         const solvedTotalMediumQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[2].count;
         const solvedTotalHardQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[3].count;
 
-        // Update progress circles and labels
-        easyprogressCircle.style.strokeDashoffset = 100 - (solvedTotalEasyQues / totalEasyQues * 100);
-        mediumProgressCircle.style.strokeDashoffset = 100 - (solvedTotalMediumQues / totalMediumQues * 100);
-        hardProgressCircle.style.strokeDashoffset = 100 - (solvedTotalHardQues / totalHardQues * 100);
+        updateProgress(solvedTotalEasyQues, totalEasyQues, easylabel, easyProgressCircle);
+        updateProgress(solvedTotalMediumQues, totalMediumQues, mediumLabel, mediumProgressCircle);
+        updateProgress(solvedTotalHardQues, totalHardQues, hardLabel, hardProgressCircle);
 
-        easylabel.textContent = `${solvedTotalEasyQues}/${totalEasyQues}`;
-        mediumLabel.textContent = `${solvedTotalMediumQues}/${totalMediumQues}`;
-        hardLabel.textContent = `${solvedTotalHardQues}/${totalHardQues}`;
+        // Update progress circles and labels
+        // easyprogressCircle.style.strokeDashoffset = 100 - (solvedTotalEasyQues / totalEasyQues * 100);
+        // mediumProgressCircle.style.strokeDashoffset = 100 - (solvedTotalMediumQues / totalMediumQues * 100);
+        // hardProgressCircle.style.strokeDashoffset = 100 - (solvedTotalHardQues / totalHardQues * 100);
+
+        // easylabel.textContent = `${solvedTotalEasyQues}/${totalEasyQues}`;
+        // mediumLabel.textContent = `${solvedTotalMediumQues}/${totalMediumQues}`;
+        // hardLabel.textContent = `${solvedTotalHardQues}/${totalHardQues}`;
     }
 
     searchButton.addEventListener('click', function(){

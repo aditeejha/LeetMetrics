@@ -88,16 +88,15 @@ document.addEventListener("DOMContentLoaded", function(){
             {label:"Overall Hard Submissions", value: parsedData.totalSolved.matchedUserStats.totalSubmissionNum[3].submissions}
         ];
 
-        cardStatsContainer.innerHTML=cardsDara.map{
-            data =>{
-                return `
+        cardStatsContainer.innerHTML=cardsData.map(data => {
+            return `
                 <div class="card">
-                <h3>${label}</h3>
-                <p>${value}</p>
+                <h4>${data.label}</h4>
+                <p>${data.value}</p>
                 </div>
                 `
             }
-        }
+        )
     }
 
     searchButton.addEventListener('click', function(){

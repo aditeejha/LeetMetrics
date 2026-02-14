@@ -56,6 +56,20 @@ document.addEventListener("DOMContentLoaded", function(){
         const totalEasyQues=parsedData.totalSolved.totalSubmissions[1].count;
         const totalMediumQues=parsedData.totalSolved.totalSubmissions[2].count;
         const totalHardQues=parsedData.totalSolved.totalSubmissions[3].count;
+
+        const solvedTotalQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[0].count;
+        const solvedTotalEasyQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[1].count;
+        const solvedTotalMediumQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[2].count;
+        const solvedTotalHardQues = parsedData.totalSolved.matchedUserStats.acSubmissionNum[3].count;
+
+        // Update progress circles and labels
+        easyprogressCircle.style.strokeDashoffset = 100 - (solvedTotalEasyQues / totalEasyQues * 100);
+        mediumProgressCircle.style.strokeDashoffset = 100 - (solvedTotalMediumQues / totalMediumQues * 100);
+        hardProgressCircle.style.strokeDashoffset = 100 - (solvedTotalHardQues / totalHardQues * 100);
+
+        easylabel.textContent = `${solvedTotalEasyQues}/${totalEasyQues}`;
+        mediumLabel.textContent = `${solvedTotalMediumQues}/${totalMediumQues}`;
+        hardLabel.textContent = `${solvedTotalHardQues}/${totalHardQues}`;
     }
 
     searchButton.addEventListener('click', function(){

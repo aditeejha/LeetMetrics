@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function(){
             }
             const data = await response.json();
             console.log("Logging data: ", data);
+
+            displayUserData(data);
         }
         catch(error){
             console.log("Error fetching user details: ", error);
@@ -48,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function(){
             searchButton.disabled=false;
         }
     } 
+
+    
 
     searchButton.addEventListener('click', function(){
         const username = usernameInput.value;

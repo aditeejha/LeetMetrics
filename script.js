@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function updateProgress(solved, total, label, circle){
         constprogressDegree = (solved/total)*100;
+        circle.style.setProperty("--progress-degree", `${progressDegree}%`);
+        label.textContent = `${solved}/${total}`;
     }
 
     function displayUserData(parsedData){

@@ -81,12 +81,23 @@ document.addEventListener("DOMContentLoaded", function(){
         // mediumLabel.textContent = `${solvedTotalMediumQues}/${totalMediumQues}`;
         // hardLabel.textContent = `${solvedTotalHardQues}/${totalHardQues}`;
 
-        const cardData = [
+        const cardsData = [
             {label:"Overall Submissions", value: parsedData.totalSolved.matchedUserStats.totalSubmissionNum[0].submissions},
             {label:"Overall Easy Submissions", value: parsedData.totalSolved.matchedUserStats.totalSubmissionNum[1].submissions},
             {label:"Overall Medium Submissions", value: parsedData.totalSolved.matchedUserStats.totalSubmissionNum[2].submissions},
             {label:"Overall Hard Submissions", value: parsedData.totalSolved.matchedUserStats.totalSubmissionNum[3].submissions}
         ];
+
+        cardStatsContainer.innerHTML=cardsDara.map{
+            data =>{
+                return `
+                <div class="card">
+                <h3>${label}</h3>
+                <p>${value}</p>
+                </div>
+                `
+            }
+        }
     }
 
     searchButton.addEventListener('click', function(){

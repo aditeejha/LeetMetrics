@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function(){
             if(!response.ok){
                 throw new Error("Unable to fetch user details");
             }
-            const data = await response.json();
-            console.log("Logging data: ", data);
+            const parsedData = await response.json();
+            console.log("Logging data: ", parsedData);
 
-            displayUserData(data);
+            displayUserData(parsedData);
         }
         catch(error){
             console.log("Error fetching user details: ", error);
@@ -51,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     } 
 
-    
+    function displayUserData(parsedData){
+        const totalQues=parsedData.totalSolved.totalSubmissions[0].count;
+        const totalEasyQues=parsedData.totalSolved.totalSubmissions[1].count;
+        const totalMediumQues=parsedData.totalSolved.totalSubmissions[2].count;
+        const totalHardQues=parsedData.totalSolved.totalSubmissions[3].count;
+    }
 
     searchButton.addEventListener('click', function(){
         const username = usernameInput.value;
